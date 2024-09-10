@@ -3,8 +3,8 @@ cd ${work_path}
 
 current_path=$(pwd)
 
-envType="local"
-envName="MT Local"
+envType="test"
+envName="MT Test"
 
 sh xdd_login.sh "${envType}" "${envName}"
 

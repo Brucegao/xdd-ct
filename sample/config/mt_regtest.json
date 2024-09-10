@@ -1482,47 +1482,6 @@
   ],
   "environments": [
     {
-      "id": "318cfe6c-9d93-400b-9534-09475328a669",
-      "name": "MT Prod",
-      "variables": {
-        "bb122bdf-a90a-4b89-8ec9-cbb934694f67": {
-          "createdAt": "2024-02-15T21:38:57.389+08:00",
-          "name": "host",
-          "value": "https://kkjc-api.jciom.com",
-          "enabled": true,
-          "private": false
-        },
-        "26ac3a1a-52f5-4cff-8fa0-d07a6b246562": {
-          "createdAt": "2024-02-15T21:38:57.389+08:00",
-          "name": "protocol",
-          "value": "http",
-          "enabled": true,
-          "private": false
-        },
-        "ac374773-fc1b-4c45-aff0-6464e498356e": {
-          "createdAt": "2024-02-15T21:38:57.389+08:00",
-          "name": "path",
-          "value": "mneighbor-web",
-          "enabled": true,
-          "private": false
-        },
-        "ab25ddb6-e0fb-40eb-8f61-483ad8177784": {
-          "createdAt": "2024-02-15T21:38:57.389+08:00",
-          "name": "webName",
-          "value": "mneighbor-web",
-          "enabled": true,
-          "private": false
-        },
-        "6c4d9654-9155-46fb-a20d-1670ba8ee0cf": {
-          "createdAt": "2024-04-16T16:30:19.097+08:00",
-          "name": "token",
-          "value": "eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjFhYmNhZWYzLWMyMDEtNDNmYS04YWUxLTliYmViZjBhMDE2YiJ9.gUMHTiKezmmL1ccyNo938ZCkGYy3Xz2m47G2v8hzfIN27kf5AAajQQ8dIp_Oq9j9lazuL92SdcPfFpHccWoFvA",
-          "enabled": true,
-          "private": false
-        }
-      }
-    },
-    {
       "id": "634fe39f-7852-4052-96d7-f885f4691955",
       "name": "MT Local",
       "variables": {
