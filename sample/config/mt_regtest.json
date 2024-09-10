@@ -1,0 +1,1608 @@
+{
+  "version": 6,
+  "entities": [
+    {
+      "entity": {
+        "type": "Project",
+        "description": "",
+        "id": "a4eb8e11-4c15-4eb8-b692-5c6b4e4ef4fe",
+        "name": "XddPlat-RegTest"
+      },
+      "children": [
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+              "name": "GET"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": [
+                  {
+                    "enabled": true,
+                    "type": "Text",
+                    "name": "crawl_url",
+                    "value": "1"
+                  }
+                ]
+              },
+              "bodyType": "Text",
+              "textBody": "{\n  \"createBy\": null,\n  \"createTime\": null,\n  \"updateBy\": null,\n  \"updateTime\": null,\n  \"remark\": null,\n  \"companyId\": 1,\n  \"companyName\": \"天津市得利信电梯有限公司\",\n  \"companyCode\": \"91120103744014026W\",\n  \"companyTrade\": 2,\n  \"companyPerson\": \"张书信\",\n  \"companyProduct\": \"31\",\n  \"contacts\": \"祝英台\",\n  \"phonenumber\": \"17719837150\",\n  \"certStatus\": 1,\n  \"cretRes\": null,\n  \"certTime\": \"2024-03-13 12:06:35\",\n  \"personCard\": \"\",\n  \"img\": \"https://xjy-api-test.jciom.com/profile/upload/2024/03/13/tmp_85b2cf8e6ecbae109f9e9e692cd59a5e_20240313120624A001.jpg\",\n  \"logo\": \"\",\n  \"authType\": null,\n  \"isAuth\": 1,\n  \"account\": null,\n  \"companyType\": null,\n  \"companyContract\": null,\n  \"authRemark\": null,\n  \"existMaker\": 1,\n  \"isReferrer\": 0,\n  \"payAuthStatus\": 0\n}"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": [
+                  {
+                    "enabled": true,
+                    "name": "orderByColumn",
+                    "value": "companyId"
+                  },
+                  {
+                    "enabled": true,
+                    "name": "isAsc",
+                    "value": "desc"
+                  },
+                  {
+                    "name": "longitudeBase",
+                    "value": "31.17426"
+                  },
+                  {
+                    "name": "dimensionBase",
+                    "value": "121.45787"
+                  },
+                  {
+                    "name": "params[referEngineerId]",
+                    "value": "41987076"
+                  },
+                  {
+                    "name": "params[serviceEngineerId]",
+                    "value": "41987076"
+                  }
+                ]
+              },
+              "host": "${\"host\"}",
+              "path": "/api/mt/company/list"
+            },
+            "id": "de8f9631-ec54-4a61-bda9-6e02503a6ef7",
+            "name": "001-mt-/mt/company/list",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Authorization",
+                "value": "Bearer ${\"token\"}"
+              }
+            ],
+            "assertions": [
+              {
+                "comparison": "Equals",
+                "subject": "ResponseStatus",
+                "path": "code",
+                "value": "200"
+              },
+              {
+                "comparison": "Equals",
+                "subject": "ResponseJsonBody",
+                "path": "$.code",
+                "value": "200"
+              },
+              {
+                "comparison": "Greater",
+                "subject": "ResponseJsonBody",
+                "path": "$.total",
+                "value": "0"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+              "name": "GET"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": [
+                  {
+                    "enabled": true,
+                    "type": "Text",
+                    "name": "crawl_url",
+                    "value": "1"
+                  }
+                ]
+              },
+              "bodyType": "Form"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": [
+                  {
+                    "name": "longitudeBase",
+                    "value": "31.17426"
+                  },
+                  {
+                    "name": "dimensionBase",
+                    "value": "121.45787"
+                  }
+                ]
+              },
+              "host": "${\"host\"}",
+              "path": "/api/mt/company/getInfoById/${getEntityById(\"de8f9631-ec54-4a61-bda9-6e02503a6ef7\").\"response\".\"body\".jsonPath(\"$.rows[0].companyId\")}"
+            },
+            "id": "f2512418-bd85-4ea3-b143-2f5e07e03480",
+            "name": "002-mt-/mt/company/<id>",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "enabled": true,
+                "name": "Authorization",
+                "value": "Bearer ${\"token\"}"
+              }
+            ],
+            "assertions": [
+              {
+                "comparison": "Equals",
+                "subject": "ResponseStatus",
+                "path": "code",
+                "value": "200"
+              },
+              {
+                "comparison": "Equals",
+                "subject": "ResponseJsonBody",
+                "path": "$.code",
+                "value": "200"
+              },
+              {
+                "comparison": "Exists",
+                "subject": "ResponseJsonBody",
+                "path": "$.data.companyId",
+                "value": "1"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+              "name": "GET"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": [
+                  {
+                    "enabled": true,
+                    "type": "Text",
+                    "name": "crawl_url",
+                    "value": "1"
+                  }
+                ]
+              },
+              "bodyType": "Form"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": [
+                  {
+                    "enabled": true,
+                    "name": "orderByColumn",
+                    "value": "id"
+                  },
+                  {
+                    "enabled": true,
+                    "name": "isAsc",
+                    "value": "desc"
+                  }
+                ]
+              },
+              "host": "${\"host\"}",
+              "path": "/api/mt/engineerUser/list"
+            },
+            "id": "8250a33a-e5b7-465d-8ef6-018785c9bff4",
+            "name": "003-mt-/mt/engineerUser/list",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "enabled": true,
+                "name": "Authorization",
+                "value": "Bearer ${\"token\"}"
+              }
+            ],
+            "assertions": [
+              {
+                "comparison": "Equals",
+                "subject": "ResponseStatus",
+                "path": "code",
+                "value": "200"
+              },
+              {
+                "comparison": "Equals",
+                "subject": "ResponseJsonBody",
+                "path": "$.code",
+                "value": "200"
+              },
+              {
+                "comparison": "Greater",
+                "subject": "ResponseJsonBody",
+                "path": "$.total",
+                "value": "0"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+              "name": "GET"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": [
+                  {
+                    "enabled": true,
+                    "type": "Text",
+                    "name": "crawl_url",
+                    "value": "1"
+                  }
+                ]
+              },
+              "bodyType": "Form"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": []
+              },
+              "host": "${\"host\"}",
+              "path": "/api/mt/engineerUser/getInfoById/${getEntityById(\"8250a33a-e5b7-465d-8ef6-018785c9bff4\").\"response\".\"body\".jsonPath(\"$.rows[0].id\")}"
+            },
+            "id": "bdb664bd-6dde-4fcb-abe9-d747e33cc41c",
+            "name": "004-mt-/mt/engineerUser/<id>",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "enabled": true,
+                "name": "Authorization",
+                "value": "Bearer ${\"token\"}"
+              }
+            ],
+            "assertions": [
+              {
+                "comparison": "Equals",
+                "subject": "ResponseStatus",
+                "path": "code",
+                "value": "200"
+              },
+              {
+                "comparison": "Equals",
+                "subject": "ResponseJsonBody",
+                "path": "$.code",
+                "value": "200"
+              },
+              {
+                "comparison": "Exists",
+                "subject": "ResponseJsonBody",
+                "path": "$.data.id",
+                "value": "2"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+              "name": "GET"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": [
+                  {
+                    "enabled": true,
+                    "type": "Text",
+                    "name": "crawl_url",
+                    "value": "1"
+                  }
+                ]
+              },
+              "bodyType": "Form"
+            },
+            "retryConfiguration": {
+              "intervalInSeconds": 10,
+              "retryCount": 1
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": [
+                  {
+                    "enabled": true,
+                    "name": "longitudeBase",
+                    "value": "121.45787"
+                  },
+                  {
+                    "enabled": true,
+                    "name": "dimensionBase",
+                    "value": "31.17426"
+                  },
+                  {
+                    "name": "engineerId",
+                    "value": "17532436"
+                  },
+                  {
+                    "enabled": true,
+                    "name": "includeToAssignOrder",
+                    "value": "true"
+                  },
+                  {
+                    "name": "includeToAssignOrder",
+                    "value": "false"
+                  },
+                  {
+                    "name": "serviceCatalog",
+                    "value": "4"
+                  },
+                  {
+                    "enabled": true,
+                    "name": "params[orderByDistance]",
+                    "value": "1"
+                  },
+                  {
+                    "enabled": true,
+                    "name": "orderByColumn",
+                    "value": "id"
+                  },
+                  {
+                    "enabled": true,
+                    "name": "isAsc",
+                    "value": "desc"
+                  },
+                  {
+                    "enabled": true,
+                    "name": "params[serviceStatus_in]",
+                    "value": "0"
+                  },
+                  {
+                    "enabled": true,
+                    "name": "params[SERVICE_ORDER_ENGINEER_FILTER_SWITCH_CLOSE]",
+                    "value": "Y"
+                  }
+                ]
+              },
+              "host": "${\"host\"}",
+              "path": "/api/mt/serviceOrder/list"
+            },
+            "id": "a5dd2d7b-bc6c-4d86-a844-aa236973f127",
+            "name": "005-mt-/mt/serviceOrder/list",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "enabled": true,
+                "name": "Authorization",
+                "value": "Bearer ${\"token\"}"
+              }
+            ],
+            "assertions": [
+              {
+                "comparison": "Equals",
+                "subject": "ResponseStatus",
+                "path": "code",
+                "value": "200"
+              },
+              {
+                "comparison": "Equals",
+                "subject": "ResponseJsonBody",
+                "path": "$.code",
+                "value": "200"
+              },
+              {
+                "comparison": "Greater",
+                "subject": "ResponseJsonBody",
+                "path": "$.total",
+                "value": "0"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+              "name": "GET"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": [
+                  {
+                    "enabled": true,
+                    "type": "Text",
+                    "name": "crawl_url",
+                    "value": "1"
+                  }
+                ]
+              },
+              "bodyType": "Form"
+            },
+            "retryConfiguration": {
+              "intervalInSeconds": 10,
+              "retryCount": 1
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": [
+                  {
+                    "enabled": true,
+                    "name": "longitudeBase",
+                    "value": "121.45787"
+                  },
+                  {
+                    "enabled": true,
+                    "name": "dimensionBase",
+                    "value": "31.17426"
+                  },
+                  {
+                    "name": "engineerId",
+                    "value": "17532436"
+                  },
+                  {
+                    "enabled": true,
+                    "name": "includeToAssignOrder",
+                    "value": "true"
+                  },
+                  {
+                    "name": "includeToAssignOrder",
+                    "value": "false"
+                  },
+                  {
+                    "name": "serviceCatalog",
+                    "value": "4"
+                  },
+                  {
+                    "enabled": true,
+                    "name": "params[orderByDistance]",
+                    "value": "1"
+                  },
+                  {
+                    "enabled": true,
+                    "name": "orderByColumn",
+                    "value": "id"
+                  },
+                  {
+                    "enabled": true,
+                    "name": "isAsc",
+                    "value": "desc"
+                  },
+                  {
+                    "enabled": true,
+                    "name": "params[serviceStatus_in]",
+                    "value": "0"
+                  },
+                  {
+                    "enabled": true,
+                    "name": "params[SERVICE_ORDER_ENGINEER_FILTER_SWITCH_CLOSE]",
+                    "value": "N"
+                  }
+                ]
+              },
+              "host": "${\"host\"}",
+              "path": "/api/mt/serviceOrder/list"
+            },
+            "id": "10e9a944-23da-4c50-a4e4-d420abe7ec16",
+            "name": "0051-mt-/mt/serviceOrder/list (按工程师类型过滤)",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "enabled": true,
+                "name": "Authorization",
+                "value": "Bearer ${\"token\"}"
+              }
+            ],
+            "assertions": [
+              {
+                "comparison": "Equals",
+                "subject": "ResponseStatus",
+                "path": "code",
+                "value": "200"
+              },
+              {
+                "comparison": "Equals",
+                "subject": "ResponseJsonBody",
+                "path": "$.code",
+                "value": "200"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+              "name": "GET"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": [
+                  {
+                    "enabled": true,
+                    "type": "Text",
+                    "name": "crawl_url",
+                    "value": "1"
+                  }
+                ]
+              },
+              "bodyType": "Form"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": [
+                  {
+                    "enabled": true,
+                    "name": "longitudeBase",
+                    "value": "31.17426"
+                  },
+                  {
+                    "enabled": true,
+                    "name": "dimensionBase",
+                    "value": "121.45787"
+                  },
+                  {
+                    "name": "params[endCreateTime]",
+                    "value": "123456"
+                  }
+                ]
+              },
+              "host": "${\"host\"}",
+              "path": "/api/mt/serviceOrder/getInfoById/${getEntityById(\"a5dd2d7b-bc6c-4d86-a844-aa236973f127\").\"response\".\"body\".jsonPath(\"$.rows[0].id\")}"
+            },
+            "id": "97d68b09-1c6b-413b-885f-6d9884e5bf36",
+            "name": "006-mt-/mt/serviceOrder/<id>",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "enabled": true,
+                "name": "Authorization",
+                "value": "Bearer ${\"token\"}"
+              }
+            ],
+            "assertions": [
+              {
+                "comparison": "Equals",
+                "subject": "ResponseStatus",
+                "path": "code",
+                "value": "200"
+              },
+              {
+                "comparison": "Equals",
+                "subject": "ResponseJsonBody",
+                "path": "$.code",
+                "value": "200"
+              },
+              {
+                "comparison": "Exists",
+                "subject": "ResponseJsonBody",
+                "path": "$.data.id",
+                "value": "${\"testOrderId\"}"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+              "name": "GET"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": [
+                  {
+                    "enabled": true,
+                    "type": "Text",
+                    "name": "crawl_url",
+                    "value": "1"
+                  }
+                ]
+              },
+              "bodyType": "Text",
+              "textBody": "{\n  \"createBy\": null,\n  \"createTime\": null,\n  \"updateBy\": null,\n  \"updateTime\": null,\n  \"remark\": null,\n  \"companyId\": 1,\n  \"companyName\": \"天津市得利信电梯有限公司\",\n  \"companyCode\": \"91120103744014026W\",\n  \"companyTrade\": 2,\n  \"companyPerson\": \"张书信\",\n  \"companyProduct\": \"31\",\n  \"contacts\": \"祝英台\",\n  \"phonenumber\": \"17719837150\",\n  \"certStatus\": 1,\n  \"cretRes\": null,\n  \"certTime\": \"2024-03-13 12:06:35\",\n  \"personCard\": \"\",\n  \"img\": \"https://xjy-api-test.jciom.com/profile/upload/2024/03/13/tmp_85b2cf8e6ecbae109f9e9e692cd59a5e_20240313120624A001.jpg\",\n  \"logo\": \"\",\n  \"authType\": null,\n  \"isAuth\": 1,\n  \"account\": null,\n  \"companyType\": null,\n  \"companyContract\": null,\n  \"authRemark\": null,\n  \"existMaker\": 1,\n  \"isReferrer\": 0,\n  \"payAuthStatus\": 0\n}"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": [
+                  {
+                    "enabled": true,
+                    "name": "orderByColumn",
+                    "value": "eqId"
+                  },
+                  {
+                    "enabled": true,
+                    "name": "isAsc",
+                    "value": "desc"
+                  },
+                  {
+                    "name": "longitudeBase",
+                    "value": "31.17426"
+                  },
+                  {
+                    "name": "dimensionBase",
+                    "value": "121.45787"
+                  },
+                  {
+                    "name": "params[referEngineerId]",
+                    "value": "41987076"
+                  },
+                  {
+                    "name": "params[serviceEngineerId]",
+                    "value": "41987076"
+                  },
+                  {
+                    "name": "companyId",
+                    "value": "5"
+                  },
+                  {
+                    "name": "isDel",
+                    "value": "0"
+                  }
+                ]
+              },
+              "host": "${\"host\"}",
+              "path": "/api/mt/device/list"
+            },
+            "id": "8603cb11-7066-4c49-aceb-22efd5f09190",
+            "name": "007-mt-/mt/device/list",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Authorization",
+                "value": "Bearer ${\"token\"}"
+              }
+            ],
+            "assertions": [
+              {
+                "comparison": "Equals",
+                "subject": "ResponseStatus",
+                "path": "code",
+                "value": "200"
+              },
+              {
+                "comparison": "Equals",
+                "subject": "ResponseJsonBody",
+                "path": "$.code",
+                "value": "200"
+              },
+              {
+                "comparison": "Greater",
+                "subject": "ResponseJsonBody",
+                "path": "$.total",
+                "value": "0"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+              "name": "GET"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": [
+                  {
+                    "enabled": true,
+                    "type": "Text",
+                    "name": "crawl_url",
+                    "value": "1"
+                  }
+                ]
+              },
+              "bodyType": "Form"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": [
+                  {
+                    "name": "longitudeBase",
+                    "value": "31.17426"
+                  },
+                  {
+                    "name": "dimensionBase",
+                    "value": "121.45787"
+                  }
+                ]
+              },
+              "host": "${\"host\"}",
+              "path": "/api/mt/device/getInfoById/${getEntityById(\"8603cb11-7066-4c49-aceb-22efd5f09190\").\"response\".\"body\".jsonPath(\"$.rows[0].eqId\")}"
+            },
+            "id": "97df92c0-57bf-4369-94fb-d118d809868e",
+            "name": "008-mt-/mt/device/<id>",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "enabled": true,
+                "name": "Authorization",
+                "value": "Bearer ${\"token\"}"
+              }
+            ],
+            "assertions": [
+              {
+                "comparison": "Equals",
+                "subject": "ResponseStatus",
+                "path": "code",
+                "value": "200"
+              },
+              {
+                "comparison": "Equals",
+                "subject": "ResponseJsonBody",
+                "path": "$.code",
+                "value": "200"
+              },
+              {
+                "comparison": "Exists",
+                "subject": "ResponseJsonBody",
+                "path": "$.data.eqId",
+                "value": "1"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+              "name": "GET"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": [
+                  {
+                    "enabled": true,
+                    "type": "Text",
+                    "name": "crawl_url",
+                    "value": "1"
+                  }
+                ]
+              },
+              "bodyType": "Text",
+              "textBody": "{\n  \"createBy\": null,\n  \"createTime\": null,\n  \"updateBy\": null,\n  \"updateTime\": null,\n  \"remark\": null,\n  \"companyId\": 1,\n  \"companyName\": \"天津市得利信电梯有限公司\",\n  \"companyCode\": \"91120103744014026W\",\n  \"companyTrade\": 2,\n  \"companyPerson\": \"张书信\",\n  \"companyProduct\": \"31\",\n  \"contacts\": \"祝英台\",\n  \"phonenumber\": \"17719837150\",\n  \"certStatus\": 1,\n  \"cretRes\": null,\n  \"certTime\": \"2024-03-13 12:06:35\",\n  \"personCard\": \"\",\n  \"img\": \"https://xjy-api-test.jciom.com/profile/upload/2024/03/13/tmp_85b2cf8e6ecbae109f9e9e692cd59a5e_20240313120624A001.jpg\",\n  \"logo\": \"\",\n  \"authType\": null,\n  \"isAuth\": 1,\n  \"account\": null,\n  \"companyType\": null,\n  \"companyContract\": null,\n  \"authRemark\": null,\n  \"existMaker\": 1,\n  \"isReferrer\": 0,\n  \"payAuthStatus\": 0\n}"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": [
+                  {
+                    "enabled": true,
+                    "name": "orderByColumn",
+                    "value": "id"
+                  },
+                  {
+                    "enabled": true,
+                    "name": "isAsc",
+                    "value": "desc"
+                  },
+                  {
+                    "name": "longitudeBase",
+                    "value": "31.17426"
+                  },
+                  {
+                    "name": "dimensionBase",
+                    "value": "121.45787"
+                  },
+                  {
+                    "name": "params[referEngineerId]",
+                    "value": "41987076"
+                  },
+                  {
+                    "name": "params[serviceEngineerId]",
+                    "value": "41987076"
+                  }
+                ]
+              },
+              "host": "${\"host\"}",
+              "path": "/api/mt/clientUser/list"
+            },
+            "id": "28cc8ca0-6283-4060-972a-42fc4469d912",
+            "name": "009-mt-/mt/clientUser/list",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Authorization",
+                "value": "Bearer ${\"token\"}"
+              }
+            ],
+            "assertions": [
+              {
+                "comparison": "Equals",
+                "subject": "ResponseStatus",
+                "path": "code",
+                "value": "200"
+              },
+              {
+                "comparison": "Equals",
+                "subject": "ResponseJsonBody",
+                "path": "$.code",
+                "value": "200"
+              },
+              {
+                "comparison": "Greater",
+                "subject": "ResponseJsonBody",
+                "path": "$.total",
+                "value": "0"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+              "name": "GET"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": [
+                  {
+                    "enabled": true,
+                    "type": "Text",
+                    "name": "crawl_url",
+                    "value": "1"
+                  }
+                ]
+              },
+              "bodyType": "Form"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": [
+                  {
+                    "name": "longitudeBase",
+                    "value": "31.17426"
+                  },
+                  {
+                    "name": "dimensionBase",
+                    "value": "121.45787"
+                  }
+                ]
+              },
+              "host": "${\"host\"}",
+              "path": "/api/mt/clientUser/getInfoById/${getEntityById(\"28cc8ca0-6283-4060-972a-42fc4469d912\").\"response\".\"body\".jsonPath(\"$.rows[0].id\")}"
+            },
+            "id": "5af9421c-b6dc-4325-afae-9b8d2f0e13b5",
+            "name": "010-mt-/mt/clientUser/<id>",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "enabled": true,
+                "name": "Authorization",
+                "value": "Bearer ${\"token\"}"
+              }
+            ],
+            "assertions": [
+              {
+                "comparison": "Equals",
+                "subject": "ResponseStatus",
+                "path": "code",
+                "value": "200"
+              },
+              {
+                "comparison": "Equals",
+                "subject": "ResponseJsonBody",
+                "path": "$.code",
+                "value": "200"
+              },
+              {
+                "comparison": "Exists",
+                "subject": "ResponseJsonBody",
+                "path": "$.data.id",
+                "value": "1"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+              "name": "GET"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": [
+                  {
+                    "enabled": true,
+                    "type": "Text",
+                    "name": "crawl_url",
+                    "value": "1"
+                  }
+                ]
+              },
+              "bodyType": "Text",
+              "textBody": "{\n  \"createBy\": null,\n  \"createTime\": null,\n  \"updateBy\": null,\n  \"updateTime\": null,\n  \"remark\": null,\n  \"companyId\": 1,\n  \"companyName\": \"天津市得利信电梯有限公司\",\n  \"companyCode\": \"91120103744014026W\",\n  \"companyTrade\": 2,\n  \"companyPerson\": \"张书信\",\n  \"companyProduct\": \"31\",\n  \"contacts\": \"祝英台\",\n  \"phonenumber\": \"17719837150\",\n  \"certStatus\": 1,\n  \"cretRes\": null,\n  \"certTime\": \"2024-03-13 12:06:35\",\n  \"personCard\": \"\",\n  \"img\": \"https://xjy-api-test.jciom.com/profile/upload/2024/03/13/tmp_85b2cf8e6ecbae109f9e9e692cd59a5e_20240313120624A001.jpg\",\n  \"logo\": \"\",\n  \"authType\": null,\n  \"isAuth\": 1,\n  \"account\": null,\n  \"companyType\": null,\n  \"companyContract\": null,\n  \"authRemark\": null,\n  \"existMaker\": 1,\n  \"isReferrer\": 0,\n  \"payAuthStatus\": 0\n}"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": [
+                  {
+                    "name": "longitudeBase",
+                    "value": "31.17426"
+                  },
+                  {
+                    "name": "dimensionBase",
+                    "value": "121.45787"
+                  },
+                  {
+                    "enabled": true,
+                    "name": "params[referEngineerId]",
+                    "value": "41987076"
+                  },
+                  {
+                    "name": "params[serviceEngineerId]",
+                    "value": "62"
+                  },
+                  {
+                    "name": "authType",
+                    "value": "2"
+                  },
+                  {
+                    "name": "params[beginCertTime]",
+                    "value": "2024-03-10"
+                  },
+                  {
+                    "name": "params[endCertTime]",
+                    "value": "2024-03-12"
+                  }
+                ]
+              },
+              "host": "${\"host\"}",
+              "path": "/api/mt/company/list"
+            },
+            "id": "095097ea-2ffb-49f4-8b97-23cfc78c04c4",
+            "name": "011-mt-我的客户-报备",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Authorization",
+                "value": "Bearer ${\"token\"}"
+              }
+            ],
+            "assertions": [
+              {
+                "comparison": "Equals",
+                "subject": "ResponseStatus",
+                "path": "code",
+                "value": "200"
+              },
+              {
+                "comparison": "Equals",
+                "subject": "ResponseJsonBody",
+                "path": "$.code",
+                "value": "200"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+              "name": "GET"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": [
+                  {
+                    "enabled": true,
+                    "type": "Text",
+                    "name": "crawl_url",
+                    "value": "1"
+                  }
+                ]
+              },
+              "bodyType": "Text",
+              "textBody": "{\n  \"createBy\": null,\n  \"createTime\": null,\n  \"updateBy\": null,\n  \"updateTime\": null,\n  \"remark\": null,\n  \"companyId\": 1,\n  \"companyName\": \"天津市得利信电梯有限公司\",\n  \"companyCode\": \"91120103744014026W\",\n  \"companyTrade\": 2,\n  \"companyPerson\": \"张书信\",\n  \"companyProduct\": \"31\",\n  \"contacts\": \"祝英台\",\n  \"phonenumber\": \"17719837150\",\n  \"certStatus\": 1,\n  \"cretRes\": null,\n  \"certTime\": \"2024-03-13 12:06:35\",\n  \"personCard\": \"\",\n  \"img\": \"https://xjy-api-test.jciom.com/profile/upload/2024/03/13/tmp_85b2cf8e6ecbae109f9e9e692cd59a5e_20240313120624A001.jpg\",\n  \"logo\": \"\",\n  \"authType\": null,\n  \"isAuth\": 1,\n  \"account\": null,\n  \"companyType\": null,\n  \"companyContract\": null,\n  \"authRemark\": null,\n  \"existMaker\": 1,\n  \"isReferrer\": 0,\n  \"payAuthStatus\": 0\n}"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": [
+                  {
+                    "name": "longitudeBase",
+                    "value": "31.17426"
+                  },
+                  {
+                    "name": "dimensionBase",
+                    "value": "121.45787"
+                  },
+                  {
+                    "name": "params[referEngineerId]",
+                    "value": "41987076"
+                  },
+                  {
+                    "enabled": true,
+                    "name": "params[serviceEngineerId]",
+                    "value": "62"
+                  },
+                  {
+                    "name": "authType",
+                    "value": "2"
+                  },
+                  {
+                    "name": "params[beginCertTime]",
+                    "value": "2024-03-10"
+                  },
+                  {
+                    "name": "params[endCertTime]",
+                    "value": "2024-03-12"
+                  }
+                ]
+              },
+              "host": "${\"host\"}",
+              "path": "/api/mt/company/list"
+            },
+            "id": "4884f780-cbc2-45f0-8fdb-b64be13b227e",
+            "name": "012-mt-我的客户-服务",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Authorization",
+                "value": "Bearer ${\"token\"}"
+              }
+            ],
+            "assertions": [
+              {
+                "comparison": "Equals",
+                "subject": "ResponseStatus",
+                "path": "code",
+                "value": "200"
+              },
+              {
+                "comparison": "Equals",
+                "subject": "ResponseJsonBody",
+                "path": "$.code",
+                "value": "200"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+              "name": "GET"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": [
+                  {
+                    "enabled": true,
+                    "type": "Text",
+                    "name": "crawl_url",
+                    "value": "1"
+                  }
+                ]
+              },
+              "bodyType": "Form"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": [
+                  {
+                    "enabled": true,
+                    "name": "longitudeBase",
+                    "value": "121.45787"
+                  },
+                  {
+                    "enabled": true,
+                    "name": "dimensionBase",
+                    "value": "31.17426"
+                  },
+                  {
+                    "name": "engineerId",
+                    "value": "59"
+                  },
+                  {
+                    "name": "includeToAssignOrder",
+                    "value": "true"
+                  },
+                  {
+                    "name": "includeToAssignOrder",
+                    "value": "false"
+                  },
+                  {
+                    "name": "serviceCatalog",
+                    "value": "4"
+                  },
+                  {
+                    "enabled": true,
+                    "name": "params[orderByDistance]",
+                    "value": "Y"
+                  },
+                  {
+                    "name": "params[serviceStatus_in]",
+                    "value": "9"
+                  },
+                  {
+                    "name": "params[serviceCatalog_in]",
+                    "value": "1,2"
+                  },
+                  {
+                    "name": "params[brandId_in]",
+                    "value": "12,13"
+                  },
+                  {
+                    "enabled": true,
+                    "name": "params[SERVICE_ORDER_ENGINEER_FILTER_SWITCH_CLOSE]",
+                    "value": "Y"
+                  },
+                  {
+                    "name": "companyName",
+                    "value": "上海芒柚视觉技术有限公司"
+                  },
+                  {
+                    "name": "params[beginCreateTime]",
+                    "value": "2024-03-19"
+                  },
+                  {
+                    "name": "params[beginOlmTime]",
+                    "value": "2024-03-19"
+                  },
+                  {
+                    "enabled": true,
+                    "name": "params[orderWithPayment]",
+                    "value": "Y"
+                  },
+                  {
+                    "enabled": true,
+                    "name": "paymentChannelType",
+                    "value": "BackendPay"
+                  },
+                  {
+                    "enabled": true,
+                    "name": "paymentStatus",
+                    "value": "Submit"
+                  },
+                  {
+                    "name": "paymentNo",
+                    "value": "20240807-084248-0192"
+                  },
+                  {
+                    "name": "params[beginPaymentCreateTime]",
+                    "value": "2024-08-07"
+                  },
+                  {
+                    "name": "params[endPaymentCreateTime]",
+                    "value": "2024-08-07"
+                  },
+                  {
+                    "name": "params[paymentDesc_like]",
+                    "value": "google.com"
+                  },
+                  {
+                    "name": "params[paymentAmount_lte]",
+                    "value": "40000"
+                  },
+                  {
+                    "name": "params[paymentAmount_gte]",
+                    "value": "30000"
+                  },
+                  {
+                    "name": "engineerName",
+                    "value": "高"
+                  }
+                ]
+              },
+              "host": "${\"host\"}",
+              "path": "/api/mt/serviceOrder/list"
+            },
+            "id": "cbbad182-cbef-4cff-90b4-ed3a6703cb68",
+            "name": "013-mt-查询线下支付订单",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "enabled": true,
+                "name": "Authorization",
+                "value": "Bearer ${\"token\"}"
+              }
+            ],
+            "assertions": [
+              {
+                "comparison": "Equals",
+                "subject": "ResponseStatus",
+                "path": "code",
+                "value": "200"
+              },
+              {
+                "comparison": "Equals",
+                "subject": "ResponseJsonBody",
+                "path": "$.code",
+                "value": "200"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+              "name": "GET"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": [
+                  {
+                    "enabled": true,
+                    "type": "Text",
+                    "name": "crawl_url",
+                    "value": "1"
+                  }
+                ]
+              },
+              "bodyType": "Form"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": [
+                  {
+                    "name": "bizId",
+                    "value": "53"
+                  },
+                  {
+                    "name": "queryCodes",
+                    "value": "EngineerAccount"
+                  },
+                  {
+                    "name": "bizCode",
+                    "value": "EngineerInOutSubReport"
+                  },
+                  {
+                    "enabled": true,
+                    "name": "bizCode",
+                    "value": "EngineerInOut"
+                  },
+                  {
+                    "enabled": true,
+                    "name": "params[bizId_in]",
+                    "value": "53,54"
+                  }
+                ]
+              },
+              "host": "${\"host\"}",
+              "path": "/api/ac/engineerAccount/list"
+            },
+            "id": "73be2c64-4aec-40d2-9fe8-115130a1c6a1",
+            "name": "014-ac-账户查询",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "enabled": true,
+                "name": "Authorization",
+                "value": "Bearer ${\"token\"}"
+              }
+            ],
+            "assertions": [
+              {
+                "comparison": "Equals",
+                "subject": "ResponseStatus",
+                "path": "code",
+                "value": "200"
+              },
+              {
+                "comparison": "Equals",
+                "subject": "ResponseJsonBody",
+                "path": "$.code",
+                "value": "200"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+              "name": "GET"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": [
+                  {
+                    "enabled": true,
+                    "type": "Text",
+                    "name": "crawl_url",
+                    "value": "1"
+                  }
+                ]
+              },
+              "bodyType": "Form"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": [
+                  {
+                    "enabled": true,
+                    "name": "userId",
+                    "value": "19"
+                  },
+                  {
+                    "enabled": true,
+                    "name": "sourceId",
+                    "value": "4"
+                  },
+                  {
+                    "enabled": true,
+                    "name": "usageStatus",
+                    "value": "Available"
+                  },
+                  {
+                    "name": "usageStatus",
+                    "value": "Used"
+                  },
+                  {
+                    "enabled": true,
+                    "name": "type",
+                    "value": "MoneyOff"
+                  }
+                ]
+              },
+              "host": "${\"host\"}",
+              "path": "/api/mall/coupon/list"
+            },
+            "id": "e0e2b837-987a-40f4-8187-7124e808979e",
+            "name": "015-mall-优惠券查询",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "enabled": true,
+                "name": "Authorization",
+                "value": "Bearer ${\"token\"}"
+              }
+            ],
+            "assertions": [
+              {
+                "comparison": "Equals",
+                "subject": "ResponseStatus",
+                "path": "code",
+                "value": "200"
+              },
+              {
+                "comparison": "Equals",
+                "subject": "ResponseJsonBody",
+                "path": "$.code",
+                "value": "200"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "environments": [
+    {
+      "id": "318cfe6c-9d93-400b-9534-09475328a669",
+      "name": "MT Prod",
+      "variables": {
+        "bb122bdf-a90a-4b89-8ec9-cbb934694f67": {
+          "createdAt": "2024-02-15T21:38:57.389+08:00",
+          "name": "host",
+          "value": "https://kkjc-api.jciom.com",
+          "enabled": true,
+          "private": false
+        },
+        "26ac3a1a-52f5-4cff-8fa0-d07a6b246562": {
+          "createdAt": "2024-02-15T21:38:57.389+08:00",
+          "name": "protocol",
+          "value": "http",
+          "enabled": true,
+          "private": false
+        },
+        "ac374773-fc1b-4c45-aff0-6464e498356e": {
+          "createdAt": "2024-02-15T21:38:57.389+08:00",
+          "name": "path",
+          "value": "mneighbor-web",
+          "enabled": true,
+          "private": false
+        },
+        "ab25ddb6-e0fb-40eb-8f61-483ad8177784": {
+          "createdAt": "2024-02-15T21:38:57.389+08:00",
+          "name": "webName",
+          "value": "mneighbor-web",
+          "enabled": true,
+          "private": false
+        },
+        "6c4d9654-9155-46fb-a20d-1670ba8ee0cf": {
+          "createdAt": "2024-04-16T16:30:19.097+08:00",
+          "name": "token",
+          "value": "eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjFhYmNhZWYzLWMyMDEtNDNmYS04YWUxLTliYmViZjBhMDE2YiJ9.gUMHTiKezmmL1ccyNo938ZCkGYy3Xz2m47G2v8hzfIN27kf5AAajQQ8dIp_Oq9j9lazuL92SdcPfFpHccWoFvA",
+          "enabled": true,
+          "private": false
+        }
+      }
+    },
+    {
+      "id": "634fe39f-7852-4052-96d7-f885f4691955",
+      "name": "MT Local",
+      "variables": {
+        "e7171ec8-0146-41d0-a012-fd57e394e29f": {
+          "createdAt": "2024-02-15T21:38:57.389+08:00",
+          "name": "host",
+          "value": "http://mt.x-dd.com",
+          "enabled": true,
+          "private": false
+        },
+        "85672b32-428b-454c-a64b-5ddc945faade": {
+          "createdAt": "2024-02-15T21:38:57.389+08:00",
+          "name": "protocol",
+          "value": "http",
+          "enabled": true,
+          "private": false
+        },
+        "9a48daad-2430-4315-81c0-09aac7e0eda8": {
+          "createdAt": "2024-02-15T21:38:57.389+08:00",
+          "name": "path",
+          "value": "mneighbor-web",
+          "enabled": true,
+          "private": false
+        },
+        "f4060f47-43d5-46f9-a65f-32668c9d004f": {
+          "createdAt": "2024-02-15T21:38:57.389+08:00",
+          "name": "webName",
+          "value": "mneighbor-web",
+          "enabled": true,
+          "private": false
+        },
+        "6bdd948f-f473-46d9-bb48-4a2bc1499f28": {
+          "createdAt": "2024-04-16T16:29:53.742+08:00",
+          "name": "token",
+          "value": "eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6ImQ2ODE4NzA3LTkzNTQtNDBkMy05MTU5LTQ0NDlhOGM5MTQ1YyJ9.-CHbWog0dgYEGyDj4pBOAbxj66HkkazX5y-9qtOjwIaJQL8r1F3F2eSiW9-PfylgI9AUAsOQzJ9DNrFf3VhdeQ",
+          "enabled": true,
+          "private": false
+        }
+      }
+    },
+    {
+      "id": "9ea426e0-18e1-4c51-9337-598442462cdb",
+      "name": "MT Test",
+      "variables": {
+        "fd7ca1c5-b13b-4e79-90be-9a34f7f99077": {
+          "createdAt": "2024-02-15T21:38:57.389+08:00",
+          "name": "host",
+          "value": "https://kkjc-api-test.jciom.com",
+          "enabled": true,
+          "private": false
+        },
+        "1433abd5-ba8b-4b33-9a3d-d00a2270ee96": {
+          "createdAt": "2024-02-15T21:38:57.389+08:00",
+          "name": "protocol",
+          "value": "http",
+          "enabled": true,
+          "private": false
+        },
+        "4a3f32fc-fff9-4770-bc6f-48f56241c0b6": {
+          "createdAt": "2024-02-15T21:38:57.389+08:00",
+          "name": "path",
+          "value": "mneighbor-web",
+          "enabled": true,
+          "private": false
+        },
+        "3555a08c-ac22-45cb-80f9-601ae6f55b5c": {
+          "createdAt": "2024-02-15T21:38:57.389+08:00",
+          "name": "webName",
+          "value": "mneighbor-web",
+          "enabled": true,
+          "private": false
+        },
+        "86c6134e-f582-440a-b94e-29397ac8708e": {
+          "createdAt": "2024-04-16T16:30:19.097+08:00",
+          "name": "token",
+          "value": "eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjIxNWJkNTY5LTRlYTEtNDAzNi1iMGFlLTg3Zjc0MDVhNzU5MiJ9.FKepCcyhqr7ELcNUFYK6LzOZhiyTeFui3owIlFashypssQWgPwdF0B5OHgGMit5InunXVhFGEONw9uYxaCLPLw",
+          "enabled": true,
+          "private": false
+        }
+      }
+    }
+  ]
+}
