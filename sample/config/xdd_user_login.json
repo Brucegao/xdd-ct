@@ -72,7 +72,7 @@
                 ]
               },
               "bodyType": "Text",
-              "textBody": "{\n  \"username\":\"bruce\",\n  \"password\":\"123456\"\n}"
+              "textBody": "{\n  \"username\":\"bruce\",\n  \"password\":\"${\"loginPwd\"}\"\n}"
             },
             "uri": {
               "query": {
@@ -139,6 +139,13 @@
           "value": "1eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjRiMGUxOTg3LWI4OGEtNGVkOC05ZTJlLTVjN2IwMTNmZTg5YiJ9.QNCR2WVwOiF-4eHIdTH6D1o1Cq5IHioKncCilnHSOPDOp0No14o6h6zPovxogs46pmOjgkV0EyV5KHupBD99ZA",
           "enabled": true,
           "private": false
+        },
+        "6c4d9651-9151-46f1-a201-1670ba8ee0c1": {
+          "createdAt": "2024-04-16T16:30:19.097+08:00",
+          "name": "loginPwd",
+          "value": "123456",
+          "enabled": true,
+          "private": false
         }
       }
     },
@@ -178,6 +185,13 @@
           "createdAt": "2024-04-16T16:30:19.097+08:00",
           "name": "token",
           "value": "1eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjYzN2QzNGU2LTE1NDYtNGEyNi04OGZjLWJhZmNmYzgzM2IzMiJ9.2KQK_GzZfVf0kKqiYhGVGDuOwig0WFADAbSU8Mq-U-rL8bpLeUmAte1Tyi0T-SBZOAvphpSi4DLcGf3LvZIvwQ",
+          "enabled": true,
+          "private": false
+        },
+        "6c4d9651-9151-46f1-a201-1670ba8ee0c1": {
+          "createdAt": "2024-04-16T16:30:19.097+08:00",
+          "name": "loginPwd",
+          "value": "123456",
           "enabled": true,
           "private": false
         }
